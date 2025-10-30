@@ -1,0 +1,131 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(99, 99, 99);
+  color: #000000;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+section {
+  padding: 10px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#intro {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+#intro h1 {
+  font-size: 3em;
+}
+
+#intro h2 {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+#intro p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project .media img {
+  width: 100%;
+  display: block;
+}
+
+.project .details {
+  padding: 15px;
+}
+
+.project .details h3 {
+  margin-bottom: 10px;
+}
+
+.project .details p {
+  margin-bottom: 10px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  padding: 15px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.contact-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #333;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.github { background-color: #24292e; }
+.linkedin { background-color: #0077b5; }
+.gmail { background-color: #d44638; }
+
+.contact-button p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-color, #333);
+}

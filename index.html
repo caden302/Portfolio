@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Caden Portfolio</title>
+        <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <!--<link rel="icon" type="image/jpg" href="./assets/token for testing.jpg">-->
+    </head>
+    <body>
+        <section id="intro">
+            <div class="intro-text">
+                <h1>Caden</h1>
+                <h2>Backend focused developer exploring AI and automation</h2>
+                <p>
+                    This website is a work in progress
+                    I enjoy building all types of software like android apps, web apps, and desktop apps.
+                    I am more interested in making them work than styling, so backend development is my calling.
+                    Currently I am interested in using local AI models to make fun virtual assistants.
+                    I use a variety of tools and am eager to learn any software, language, or tool to make development more enjoyable.
+                </p>
+            </div>  
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project">
+                    <h3>Crossword App</h3>
+                    <div class="media">
+                        <img src="/resources/image.png" alt="Screenshot of my Android crossword project">
+                    </div>
+                    <div class="details">
+                        
+                        <p>An android app that allows you to play crosswords. It comes with 1 pre-downloaded crossword and talks to an api to dynamically create new crosswords.</p>
+                        <p><strong>Tech:</strong> Java, SqlLite, Android Studio, Gradle</p>
+                        <a href="https://github.com/caden302/Crossword" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Timecard System</h3>
+                    <div class="media">
+                        <img src="path/to/img" alt="Screenshot of my capstone Attendace/Timecard project">
+                    </div>
+                    <div class="details">
+            
+                        <p>A java app that allows user to look up attendance info, shift info, and automatically makes changes to punches based on specified rules.</p>
+                        <p><strong>Tech:</strong> Java, MySQL</p>
+                        <a href="https://github.com/caden302/cs310-teamproject-fa24" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Clash Royale Stats</h3>
+                    <div class="steam">
+                        
+                    </div>
+                    <div class="details">
+                        <p>A fun filler project that displays my Steam stats. It is a python script that periodically pulls my info from the steam api,writes it to a json file, and pushes it to github to be displayed here.</p>
+                        <p><strong>Tech:</strong> Python</p>
+                        <a href="https://github.com/caden302/portfolio" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>Skills and Tools</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>C++</li>
+                        <li>SQL (MySQL, SQL Server, SQLite)</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Spring Boot</li>
+                        <li>Android SDK</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>Gradle</li>
+                        <li>Maven</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Info / Links</h2>
+            <div class="social-buttons">
+                <div class="contact-button">
+                    <a href="https://github.com/caden302" target="_blank" class="social-btn github">
+                    <i class="fab fa-github"></i>
+                    </a>
+                    <p>GitHub</p>
+                </div>
+                <div class="contact-button">
+                    <a href="https://www.linkedin.com/in/caden302" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <p>LinkedIn</p>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <script>
+        fetch('steamStats.json')
+            .then(response => response.json)
+            .then(data => {
+                const container = document.getElementById('steam');
+                container.innerHTML = `
+                <p><strong>Trophies</strong> ${data.trophies}</p>
+                <h4>Deck:</h4>
+                <ul>
+                    ${data.cards.map(card => `<li>${card.name} - Level ${card.level}</li>`).join('')}
+                </ul>`;
+            })
+        .catch(err => console.error('Error loading Clash info', err));
+    </script>
+</html>
