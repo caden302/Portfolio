@@ -14,7 +14,7 @@
                 <h1>Caden</h1>
                 <h2>Backend focused developer exploring AI and automation</h2>
                 <p>
-                    This website is a work in progress
+                    This website is a work in progress.
                     I enjoy building all types of software like android apps, web apps, and desktop apps.
                     I am more interested in making them work than styling, so backend development is my calling.
                     Currently I am interested in using local AI models to make fun virtual assistants.
@@ -50,14 +50,14 @@
                     </div>
                 </div>
                 <div class="project">
-                    <h3>Clash Royale Stats</h3>
+                    <h3>Steam Stats</h3>
                     <div class="steam">
                         
                     </div>
                     <div class="details">
                         <p>A fun filler project that displays my Steam stats. It is a python script that periodically pulls my info from the steam api,writes it to a json file, and pushes it to github to be displayed here.</p>
                         <p><strong>Tech:</strong> Python</p>
-                        <a href="https://github.com/caden302/portfolio" target="_blank">GitHub</a>
+                        <a href="https://github.com/caden302/Portfolio" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -111,20 +111,31 @@
                 </div>
             </div>
         </section>
-    </body>
+        <script>
+            console.log("Entered")
+            fetch('/resources/steamStats.json')
+                .then(response => {
+                    console.log("Fetch status:", response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Data recieved", data);
 
-    <script>
-        fetch('steamStats.json')
-            .then(response => response.json)
-            .then(data => {
-                const container = document.getElementById('steam');
-                container.innerHTML = `
-                <p><strong>Trophies</strong> ${data.trophies}</p>
-                <h4>Deck:</h4>
-                <ul>
-                    ${data.cards.map(card => `<li>${card.name} - Level ${card.level}</li>`).join('')}
-                </ul>`;
-            })
-        .catch(err => console.error('Error loading Clash info', err));
-    </script>
+                    const container = document.querySelector('.steam');
+                    container.innerHTML = '';
+
+                    data.forEach(element => {
+                        const div = document.createElement('div')
+                        div.classList.add("game-card")
+                        div.innerHTML=`
+                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/${element.appid}/header.jpg" alt="Game Icon">
+                        <p>
+                            <strong>${element.name}</strong> playtime: ${element.playtime} hours
+                        </p>`
+                        container.appendChild(div);
+                    });
+                })
+            .catch(err => console.error('Error loading Steam info', err));
+        </script>
+    </body>
 </html>

@@ -1,4 +1,5 @@
 import requests
+import json
 
 class SteamGrabber:
     def __init__(self, key, url, id):
@@ -18,8 +19,10 @@ class SteamGrabber:
         sanitizedGames = []
         for game in games:
             sanitizedGames.append({
+                "appid": game["appid"],
                 "name": game["name"],
-                "playtime": game["playtime_forever"],
+                "playtime": int(game["playtime_forever"]/60),
                 "icon_url": game["img_icon_url"]
             })
+        sanitizedGames = sorted(sanitizedGames, key=lambda x: x["playtime"], reverse=True)[:5]
         return sanitizedGames
