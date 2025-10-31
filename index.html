@@ -113,7 +113,7 @@
         </section>
         <script>
             console.log("Entered")
-            fetch('/REPO/resources/steamStats.json')
+            fetch('resources/steamStats.json')
                 .then(response => {
                     console.log("Fetch status:", response.status);
                     return response.json();
