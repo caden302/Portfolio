@@ -25,9 +25,12 @@ def main():
         print(e)
     
     if(len(games) > 0):
-        uploader.update_json(games)    
+        uploader.update_json(games)  
+        uploader.pushToGitHub()  
     else:
         print("Nothing to update")
+
+    
 
 if __name__ == "__main__":
     main()
